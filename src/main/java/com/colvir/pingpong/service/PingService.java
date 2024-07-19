@@ -15,7 +15,7 @@ public class PingService {
     @Autowired
     private KafkaTemplate<String, String> kafkaTemplate;
 
-    @Scheduled(fixedRate = 5000)
+    @Scheduled(fixedDelay = 5000)
     public void sendPing() {
         String pingId = UUID.randomUUID().toString();
         String pingDateTime = LocalDateTime.now().toString();
