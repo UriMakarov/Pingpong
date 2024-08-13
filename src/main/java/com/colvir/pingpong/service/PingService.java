@@ -3,6 +3,7 @@ package com.colvir.pingpong.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
+
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,7 @@ public class PingService {
 
     @Autowired
     private KafkaTemplate<String, String> kafkaTemplate;
+
 
     @Scheduled(fixedDelay = 5000)
     public void sendPing() {
@@ -27,4 +29,5 @@ public class PingService {
     public void listenPong(String message) {
         System.out.println("Received: " + message);
     }
+
 }
